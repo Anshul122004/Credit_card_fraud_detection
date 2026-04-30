@@ -95,29 +95,29 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="Time">Time (seconds since transaction)</label>
-                                        <input type="number" class="form-control" id="Time" required>
+                                        <input type="number" step="any" class="form-control" id="Time" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="Amount">Amount</label>
-                                        <input type="number" step="0.01" class="form-control" id="Amount" required>
+                                        <input type="number" step="any" class="form-control" id="Amount" required>
                                     </div>
                                 </div>
                                 
-                                <div class="col-md-4 feature-column" id="featuresColumn1">
+                                <div class="col-md-4 feature-column mt-3 mt-md-0" id="featuresColumn1">
                                     <h6>Features V1-V14</h6>
                                     <!-- Features V1-V14 will be added by JavaScript -->
                                 </div>
                                 
-                                <div class="col-md-4 feature-column" id="featuresColumn2">
+                                <div class="col-md-4 feature-column mt-3 mt-md-0" id="featuresColumn2">
                                     <h6>Features V15-V28</h6>
                                     <!-- Features V15-V28 will be added by JavaScript -->
                                 </div>
                             </div>
                             
-                            <div class="text-center mt-3">
+                            <div class="mt-3 d-grid gap-2 d-sm-flex justify-content-center">
                                 <button type="submit" class="btn btn-primary">Check for Fraud</button>
-                                <button type="button" id="fillFraud" class="btn btn-danger ms-2">Fill Fraud Example</button>
-                                <button type="button" id="fillLegit" class="btn btn-success ms-2">Fill Legitimate Example</button>
+                                <button type="button" id="fillFraud" class="btn btn-danger">Fill Fraud Example</button>
+                                <button type="button" id="fillLegit" class="btn btn-success">Fill Legitimate Example</button>
                             </div>
                         </form>
                     </div>
@@ -176,7 +176,7 @@
                     const inputHtml = `
                         <div class="form-group">
                             <label for="V${i}">V${i}</label>
-                            <input type="number" step="0.0001" class="form-control" id="V${i}" required>
+                            <input type="number" step="any" class="form-control" id="V${i}" required>
                         </div>
                     `;
                     
@@ -194,30 +194,30 @@
             // Generate the inputs when page loads
             generateFeatureInputs();
 
-            // Example fraud transaction
+            // Example fraud transaction (real row from dataset; scores ~100% fraud in current model)
             const fraudExample = {
-                "Time": 542,
-                "V1": 2.345, "V2": -1.782, "V3": 1.234, "V4": -0.987,
-                "V5": 0.765, "V6": -0.543, "V7": 0.321, "V8": -0.876,
-                "V9": 0.654, "V10": -0.432, "V11": 0.987, "V12": -0.123,
-                "V13": 0.456, "V14": -0.789, "V15": 0.234, "V16": -0.567,
-                "V17": 0.876, "V18": -0.345, "V19": 0.678, "V20": -0.901,
-                "V21": 0.123, "V22": -0.456, "V23": 0.789, "V24": -0.234,
-                "V25": 0.567, "V26": -0.890, "V27": 0.345, "V28": -0.678,
-                "Amount": 999.99
+                "Time": 7519,
+                "V1": 1.23423504613468, "V2": 3.0197404207034, "V3": -4.30459688479665, "V4": 4.73279513041887,
+                "V5": 3.62420083055386, "V6": -1.35774566315358, "V7": 1.71344498787235, "V8": -0.496358487073991,
+                "V9": -1.28285782036322, "V10": -2.44746925511151, "V11": 2.10134386504854, "V12": -4.6096283906446,
+                "V13": 1.46437762476188, "V14": -6.07933719308005, "V15": -0.339237372732577, "V16": 2.58185095378146,
+                "V17": 6.73938438478335, "V18": 3.04249317830411, "V19": -2.72185312222835, "V20": 0.0090608363953452,
+                "V21": -0.37906830709218, "V22": -0.704181032215427, "V23": -0.656804756348389, "V24": -1.63265295692929,
+                "V25": 1.48890144838237, "V26": 0.566797273468934, "V27": -0.0100162234965625, "V28": 0.146792734916988,
+                "Amount": 1.00
             };
             
-            // Example legitimate transaction
+            // Example legitimate transaction (real row from dataset; scores ~0% fraud in current model)
             const legitExample = {
-                "Time": 406,
-                "V1": -2.312, "V2": 1.952, "V3": -1.610, "V4": 3.998,
-                "V5": -0.522, "V6": -1.427, "V7": -2.537, "V8": 1.392,
-                "V9": -2.770, "V10": -2.772, "V11": 3.202, "V12": -2.900,
-                "V13": -0.595, "V14": -4.289, "V15": 0.390, "V16": -1.141,
-                "V17": -2.831, "V18": -0.017, "V19": -0.417, "V20": -0.582,
-                "V21": -0.038, "V22": 0.853, "V23": 0.250, "V24": 0.322,
-                "V25": -0.337, "V26": 0.036, "V27": 0.413, "V28": 0.124,
-                "Amount": 1.00
+                "Time": 1427,
+                "V1": 1.1737458014552, "V2": 0.128071542707179, "V3": 0.135536985085804, "V4": 1.11591772400711,
+                "V5": 0.227758612548741, "V6": 0.53262000733788, "V7": -0.0675449466223971, "V8": 0.189609252764456,
+                "V9": 0.113339782153443, "V10": 0.0527713951959175, "V11": 0.507457156660394, "V12": 0.868995541152536,
+                "V13": -0.325094571543206, "V14": 0.266326553697866, "V15": -0.719136635655888, "V16": -0.31547660095383,
+                "V17": -0.224297436081144, "V18": -0.230496493412987, "V19": 0.18335738763066, "V20": -0.175337668530826,
+                "V21": -0.0991280756688584, "V22": -0.0884922282021945, "V23": -0.155089236262347, "V24": -0.654112237437914,
+                "V25": 0.717878065253373, "V26": -0.286624247386667, "V27": 0.0340071204964542, "V28": -0.0019319598083138,
+                "Amount": 6.54
             };
             
             // Fill form with example data

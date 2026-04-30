@@ -9,15 +9,15 @@ body{
 }
 .Home-page{
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
 }
 nav{
     display: flex;
-    height: 10vh;
     justify-content:space-between;
     align-items: center;
     flex-wrap: wrap;
     border: 0px 2px 2px 0 solid rgb(84, 84, 151); /* teal border */
+    padding: 0.75rem 1rem;
 
 }
 nav ul li{
@@ -27,7 +27,7 @@ nav ul li{
 nav ul li a{
     color: #fff;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 1.1rem;
     position: relative;
 }
 .hover-link:hover{
@@ -37,16 +37,22 @@ nav ul li a{
     text-align: center;
 }
 .project-name{
-    margin-left: 80px;
+    margin-left: 0;
     color: rgb(158, 154, 154);
+    font-size: 1.25rem;
+    padding: 0.25rem 0;
 }
 .header{
-    height: 90vh;
+    min-height: calc(100vh - 70px);
     width: 100%;
     background-image: url("bcg-img1.jpg");
     background-size: cover;          /* Scale the image to cover the header */
     background-position: center;     /* Center the image */
     background-repeat: no-repeat; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem 1rem;
 }
 .header .headline{
     color:#00bcd4;
@@ -54,8 +60,12 @@ nav ul li a{
     overflow: hidden;
     white-space: nowrap;
     animation: typing 2s steps(10, end) infinite forwards; */
-    padding-left: 80px;
-    padding-top: 120px;
+    padding-left: 0;
+    padding-top: 0;
+    text-align: center;
+    font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+    margin: 0 auto;
+    max-width: 1000px;
 }
 /* @keyframes typing{
     0% {
@@ -69,19 +79,21 @@ nav ul li a{
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    padding-left: 80px;
-    padding-top: 40px;
+    padding-left: 0;
+    padding-top: 1rem;
+    align-items: center;
 }
 
 .line {
     color: #fff;
-    font-size: 2rem;
+    font-size: clamp(1rem, 2.2vw, 1.6rem);
     width: 0;
     overflow: hidden;
     white-space: nowrap;
     animation: typing 4s steps(40, end) infinite;
     opacity: 0;
     animation-timing-function: steps(40, end);
+    text-align: center;
 }
 
 .line2 {
@@ -115,14 +127,14 @@ nav ul li a{
     background-color: #fff;
     border-radius: 40px;
     color: black;
-    width: 200px;
-    height: 80px;
+    width: fit-content;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
-    margin-left: 70px;
-    margin-top: 90px;
+    font-size: 1.1rem;
+    margin: 2rem auto 0;
+    padding: 0.9rem 1.6rem;
 }
 .demo a{
     text-decoration: none;
@@ -136,8 +148,9 @@ nav ul li a{
     color: #fff
 }
 #info-page{
-    height: 95vh;
+    height: auto;
     width: 100%;
+    padding: 3rem 1rem 1rem;
 }
 .info{
     background-color: #fff;
@@ -149,8 +162,7 @@ nav ul li a{
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    margin-left: 45%;
-    margin-top: 40px;
+    margin: 0 auto 1.5rem;
 }
 .info-line{
     margin-top: 45px;
@@ -159,43 +171,47 @@ nav ul li a{
     margin-top: 10px;
     color: #fff;
     text-align: center;
-    font-size: 1.8rem;
+    font-size: clamp(1rem, 2.2vw, 1.4rem);
 }
 .model-section{
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1.25rem;
 }
 .model{
     color: #ECEFF4;
-    width:45vw;
-    height: 250px;
+    flex: 1 1 320px;
+    max-width: 640px;
+    height: auto;
     background-color: #2E3440;
     border-radius: 40px;
-    margin-top: 80px;
-    padding-top: 25px;
+    margin-top: 2rem;
+    padding: 1.5rem 1.25rem;
 }
 .model h1{
     text-align: center;
 }
 .model ul li{
-    font-size: 1.8rem;
+    font-size: 1.1rem;
     text-align: center;
     list-style-type: none
 }
 .matrix{
     background-color: #2E3440;
     color: #ECEFF4;
-    width: 500px;
+    flex: 1 1 320px;
+    max-width: 640px;
     border-radius: 40px;
-    margin-top: 80px;
-    padding-top: 20px;
+    margin-top: 2rem;
+    padding: 1.5rem 1.25rem;
 
 }
 .matrix h1{
     text-align: center;
 }
 .matrix ul li{
-    font-size: 1.8rem;
+    font-size: 1.1rem;
     text-align: center;
     list-style-type: none
 }
@@ -203,14 +219,14 @@ nav ul li a{
     display: flex;
     justify-content: center;
     align-items: center ;
-    height: 150px;
+    min-height: 120px;
     background-color: #3B4252;
-    width: 90%;
+    width: min(1000px, 92%);
     border-radius: 30px;
-    font-size: 1.5rem;
+    font-size: 1.05rem;
     color: #E5E7EB;
-    margin-top: 100px;
-    margin-left: 100px;
+    margin: 2.5rem auto 0;
+    padding: 1rem 1.25rem;
 }
 #demo2{
     background-color: #fff;
@@ -222,8 +238,7 @@ nav ul li a{
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    margin-left: 900px;
-    margin-top: 20px;
+    margin: 1.25rem auto 0;
     padding-top: 7px;
 
 }
@@ -279,4 +294,53 @@ nav ul li a{
 
 .fraud-steps ul li {
     margin: 0.25rem 0;
+}
+
+/* Responsive overrides */
+@media (max-width: 992px) {
+    nav ul li {
+        margin: 8px 12px;
+    }
+    nav ul li a {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .Home-page {
+        min-height: auto;
+    }
+    .header {
+        min-height: auto;
+        padding: 3rem 1rem 2rem;
+    }
+    /* Disable typewriter effect so text wraps on small screens */
+    .line {
+        width: auto;
+        white-space: normal;
+        overflow: visible;
+        animation: none;
+        opacity: 1;
+    }
+    .feature-column {
+        max-height: none;
+        overflow-y: visible;
+    }
+}
+
+@media (max-width: 576px) {
+    .project-name {
+        font-size: 1.1rem;
+        text-align: left;
+    }
+    nav ul li a {
+        font-size: 0.95rem;
+    }
+    .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    .ms-2 {
+        margin-left: 0 !important;
+    }
 }
